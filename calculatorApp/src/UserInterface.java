@@ -4,18 +4,39 @@ public class UserInterface {
     public static void main(String[] args) {
         Memory memory = new Memory();
 
+        callCalculaitonoperation(memory);
+    }
+
+    private static void callCalculaitonoperation(Memory memory) {
         operationActions(memory);
         recallMemory(memory);
         cleanMemory(memory);
+        goOrBack(memory);
+    }
+
+    private static void goOrBack(Memory memory) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println();
+        System.out.print("Do you want to make another operation (yes/no): ");
+        String back = scanner.nextLine();
+
+        if (back.equals("yes")){
+            System.out.println();
+            callCalculaitonoperation(memory);
+        }else {
+            System.out.println("Thank you for using my calculator application.");
+        }
     }
 
     private static void recallMemory(Memory memory) {
         Scanner scanner = new Scanner(System.in);
 
+        System.out.println();
         System.out.print("Do you want to recall the memory (yes/no): ");
-        String add = scanner.nextLine();
+        String recall = scanner.nextLine();
 
-        if (add.equals("yes")){
+        if (recall.equals("yes")){
             System.out.println("The result in memory is " + memory.recallMemory());
         }
     }
@@ -23,10 +44,11 @@ public class UserInterface {
     private static void cleanMemory(Memory memory) {
         Scanner scanner = new Scanner(System.in);
 
+        System.out.println();
         System.out.print("Do you want to clear the memory (yes/no): ");
-        String add = scanner.nextLine();
+        String clean = scanner.nextLine();
 
-        if (add.equals("yes")){
+        if (clean.equals("yes")){
             memory.clearMemory();
             System.out.println("Memory cleaned successfully");
         }
@@ -34,14 +56,14 @@ public class UserInterface {
 
     private static void addToMemory(Memory memory, Double result) {
         Scanner scanner = new Scanner(System.in);
+        System.out.println();
         System.out.print("Do you want to add this result in memory (yes/no): ");
         String add = scanner.nextLine();
 
         if (add.equals("yes")){
             memory.addToMeomory(result);
+            System.out.println("Value added successfully in memory");
         }
-
-        System.out.println("Value added successfully in memory");
     }
 
     private static void operationActions(Memory memory) {
@@ -87,7 +109,7 @@ public class UserInterface {
 
 
             case "square root":
-                double number = firstNumber(scanner);
+                double number = number(scanner);
                 double square = squareRoot.squareRoot(number);
                 System.out.println("Square root of " + number  + " is " + square);
                 addToMemory(memory, square);
@@ -109,6 +131,12 @@ public class UserInterface {
 
     private static double firstNumber(Scanner scanner) {
         System.out.print("Enter first number: ");
+        double nr1 = scanner.nextDouble();
+        return nr1;
+    }
+
+    private static double number(Scanner scanner) {
+        System.out.print("Enter number: ");
         double nr1 = scanner.nextDouble();
         return nr1;
     }
