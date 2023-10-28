@@ -37,7 +37,7 @@ public class Calculator {
             memory.addToMeomory(divisionResult);
             return divisionResult;
         }
-//        public double
+
 
 
     }
