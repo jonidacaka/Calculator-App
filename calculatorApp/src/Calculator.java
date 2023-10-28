@@ -9,6 +9,7 @@ public class Calculator {
     //Recall Memory (MR): Users can recall the value stored in memory and use it in calculations.
     //
     //
+    //
     //User Interface: The user interface is text-based, allowing users to interact with the calculator through the console.
     // Users are presented with a menu to select operations and enter numbers.
     //Exit Option: Users can choose to exit the calculator when they are finished with their calculations.
